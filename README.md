@@ -80,6 +80,4 @@ src/app/
 └── shared/        # Componentes reutilizables
 ```
 
-## 📄 Licencia
 
-Este proyecto está bajo la licencia [MIT](LICENSE).
