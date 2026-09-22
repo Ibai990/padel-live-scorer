@@ -5,12 +5,9 @@
 **Marcador de pádel online, gratis y pensado para usarse en la pista.**
 Lleva los puntos, juegos y sets, y te dice siempre quién saca y desde qué lado.
 
-[![Demo en vivo](https://img.shields.io/badge/Probar%20en%20vivo-padellivescorer.com-d4ff00?style=for-the-badge&labelColor=0b0e14)](https://padellivescorer.com)
-
 [![Angular](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare%20Pages-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com)
-
 <br>
 
 <img src="docs/demo.gif" alt="Demo de Padel Live Scorer" width="720">
