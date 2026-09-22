@@ -32,7 +32,7 @@ Lleva los puntos, juegos y sets, y sabes siempre quién saca y desde qué lado.
 <div align="center">
   <img src="docs/captura-inicio.png" alt="Pantalla de inicio" width="360">
   &nbsp;
-  <img src="docs/captura-partido.png" alt="Marcador en el móvil" width="200">
+  <img src="docs/captura-partido.png" alt="Marcador en el móvil" width="360">
 </div>
 
 ## Cómo se usa
