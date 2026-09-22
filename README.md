@@ -4,6 +4,7 @@
 
 **Marcador de pádel online, gratis y pensado para usarse en la pista.**
 Lleva los puntos, juegos y sets, y sabes siempre quién saca y desde qué lado.
+<br>
 [![Abrir en StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Ibai990/padel-live-scorer)
 <br>
 [![Angular](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.dev)
