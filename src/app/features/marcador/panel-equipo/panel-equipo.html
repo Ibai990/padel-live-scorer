@@ -1,0 +1,23 @@
+<div class="head">
+  <div>
+    <div class="badges">
+      <span class="badge team">Pareja {{ index() + 1 }}</span>
+      @if (serving()) {
+        <span class="badge serve"><span class="ball"></span> Al saque</span>
+      }
+    </div>
+    <h2>{{ name() }}</h2>
+  </div>
+
+  <div class="games">
+    <span class="label">Juegos</span>
+    <strong>{{ games() }}</strong>
+  </div>
+</div>
+
+<div class="points">{{ points() }}</div>
+
+<div class="foot">
+  <span class="label">☝ +1 punto pareja {{ index() + 1 }}</span>
+  <kbd>{{ keyHint() }}</kbd>
+</div>

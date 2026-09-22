@@ -1,0 +1,78 @@
+@if (partido.state(); as s){
+
+@let izq = order()[0];
+@let dch = order()[1];
+
+<header class="top">
+    <app-marca />
+
+    <div class="summary">
+        <div class="group">
+            <span class="label">Sets</span>
+            <strong>{{ s.sets[izq] }} - {{ s.sets[dch]}}</strong>
+        </div>
+
+        @if(s.marcadorSets.length > 0){
+        <div class="history">
+
+            @for (set of s.marcadorSets; track $index){
+            <span class="chip">
+                <b [class.won]="set[izq] > set[dch]">{{ set[izq] }}</b>
+                -
+                <b [class.won]="set[dch] > set[izq]">{{ set[dch] }}</b>
+            </span>
+            }
+
+        </div>
+        }
+
+        @if (partido.ganador() == null){
+        <span class="sep"></span>
+        <div class="group">
+            <span class="label lime">Juegos</span>
+            <strong>{{ s.juegos[izq] }} : {{ s.juegos[dch] }}</strong>
+        </div>
+        }
+
+    </div>
+</header>
+
+<section class="serve-strip">
+    @if (partido.ganador() === null) {
+    <span class="label">Saque &amp; resto</span>
+    <app-court-mini [serverOnLeft]="saqueIZQ()" [side]="partido.ladoSaque()" />
+    <div class="serve-info">
+        <strong class="lime">
+            {{ partido.ladoSaque() }} ({{ partido.ladoSaque() === 'DERECHA' ? 'IGUALES' : 'VENTAJA' }})
+        </strong>
+        <small>Saca {{ partido.nombreServicio() }} a cruzado</small>
+    </div>
+    } @else {
+    <strong class="final">🏆 Ganan {{ s.equipos[partido.ganador()!] }}</strong>
+    }
+</section>
+
+<main class="panels">
+    @for (team of order(); track team; let first = $first) {
+    <app-panel-equipo [index]="team" [name]="s.equipos[team]" [games]="s.juegos[team]"
+        [points]="partido.puntosLabels()[team]" [serving]="partido.ganador() === null && s.equipoSaque === team"
+        [keyHint]="first ? '← Flecha Izq' : 'Flecha Der →'" (point)="partido.sumaPunto(team)" />
+    }
+</main>
+
+<footer class="actions">
+    @if (partido.ganador() === null) {
+    <button (click)="partido.undo()" [disabled]="!partido.canUndo()">
+        <span class="icon undo">↶</span> Deshacer
+    </button>
+    <button (click)="partido.cambioCampo()">
+        <span class="icon swap">⇄</span> Cambiar Campo
+    </button>
+    } @else {
+    <button (click)="partido.undo()">
+        <span class="icon undo">↶</span> Deshacer último punto
+    </button>
+    <button class="primary" (click)="newMatch()">Nuevo partido →</button>
+    }
+</footer>
+}

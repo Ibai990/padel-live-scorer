@@ -4,11 +4,11 @@
 
 <main>
   <form [formGroup]="form" (ngSubmit)="start()">
-    <label class="label" for="team1">Pareja 1</label>
-    <input id="team1" formControlName="team1" placeholder="Jugador1 & Jugador2" autocomplete="off" />
+    <label class="label" for="equipo1">Pareja 1</label>
+    <input id="equipo1" formControlName="equipo1" placeholder="Jugador1 Jugador2" autocomplete="off" />
 
-    <label class="label" for="team2">Pareja 2</label>
-    <input id="team2" formControlName="team2" placeholder="Jugador1 & Jugador2" autocomplete="off" />
+    <label class="label" for="equipo2">Pareja 2</label>
+    <input id="equipo2" formControlName="equipo2" placeholder="Jugador1 Jugador2" autocomplete="off" />
 
     <button type="submit" [disabled]="form.invalid">
       EMPEZAR PARTIDO

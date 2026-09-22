@@ -1,0 +1,17 @@
+<div class="court">
+  @for (half of halves; track half) {
+    <div class="half">
+      @for (row of rows; track row) {
+        @let r = role(half, row);
+        <div class="cell" [class.saque]="r === 'saque'" [class.resto]="r === 'resto'">
+          @if (r === 'saque') { <span class="ball"></span> {{ side() }} }
+          @if (r === 'resto') { RESTO }
+        </div>
+      }
+    </div>
+
+    @if (half === 'L') {
+      <div class="net"></div>
+    }
+  }
+</div>
