@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "padel-scorer": {
+    "padel-live-scorer": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -64,10 +64,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "padel-scorer:build:production"
+              "buildTarget": "padel-live-scorer:build:production"
             },
             "development": {
-              "buildTarget": "padel-scorer:build:development"
+              "buildTarget": "padel-live-scorer:build:development"
             }
           },
           "defaultConfiguration": "development"

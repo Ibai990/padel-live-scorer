@@ -1,13 +1,14 @@
 {
-  "name": "padel-scorer",
+  "name": "padel-live-scorer",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "node -e \"require('fs').copyFileSync('dist/padel-live-scorer/browser/index.csr.html', 'dist/padel-live-scorer/browser/404.html')\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:padel-scorer": "node dist/padel-scorer/server/server.mjs"
+    "serve:ssr:padel-live-scorer": "node dist/padel-live-scorer/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,

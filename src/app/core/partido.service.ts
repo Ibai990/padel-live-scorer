@@ -163,7 +163,8 @@ function isTieBreak(s: PartidoState): boolean {
     return s.juegos[0] === 6 && s.juegos[1] === 6;
 }
 
-const STORAGE_KEY = 'padel-scorer';
+const STORAGE_KEY = 'padel-live-scorer';
+const LEGACY_STORAGE_KEY = 'padel-scorer';
 interface SavedData{
     state: PartidoState | null;
     history: PartidoState[];
@@ -176,7 +177,7 @@ function loadSaved(): SavedData{
     }
 
     try{
-        const raw = localStorage.getItem(STORAGE_KEY);
+        const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(LEGACY_STORAGE_KEY);
         if(raw) return JSON.parse(raw) as SavedData;
     } catch{
         //Si los datos estan corruptos empezamos de cero
