@@ -12,7 +12,7 @@ const hasPartido = () => {
 }
 
 export const routes: Routes = [
-    {path: '', component: Setup},
-    {path: 'partido', component: Marcador, canActivate: [hasPartido]},
+    {path: '', component: Setup, title: 'Marcador de pádel online gratis | Padel Live Scorer'},
+    {path: 'partido', component: Marcador, canActivate: [hasPartido], title: 'Partido en juego | Padel Live Scorer'},
     {path: '**', redirectTo: ''},
 ];

@@ -200,3 +200,32 @@
     }
   }
 }
+
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .top {
+    padding: 6px 16px;
+  }
+
+  .summary {
+    padding: 4px 12px;
+  }
+
+  .serve-strip {
+    min-height: 0;
+    padding: 4px 12px;
+    gap: 12px;
+
+    > .label {
+      display: none;
+    }
+  }
+
+  .actions {
+    padding: 6px 12px;
+
+    button {
+      padding: 8px;
+    }
+  }
+}

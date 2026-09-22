@@ -11,9 +11,12 @@
   &:active {
     filter: brightness(1.25);
   }
+  min-height: 0;
+  overflow: hidden;
+  touch-action: manipulation;
 }
 
-:host(.team-2) {
+:host(.equipo-2) {
   --accent: var(--orange);
 }
 
@@ -87,14 +90,19 @@ h2 {
 
 .points {
   flex: 1;
+  min-height: 0;
   display: grid;
   place-items: center;
-  font-size: clamp(6rem, 20vw, 16rem);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  container-type: size;
+
+  span {
+    font-size: min(80cqh, 42cqw);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  }
 }
 
 
@@ -113,4 +121,26 @@ kbd {
   font-family: inherit;
   font-size: 0.65rem;
   color: var(--muted);
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  :host {
+    padding: 12px 18px;
+  }
+
+  .badges {
+    margin-bottom: 4px;
+  }
+
+  .games {
+    padding: 4px 10px;
+
+    strong {
+      font-size: 1.2rem;
+    }
+  }
+
+  .foot {
+    display: none;
+  }
 }

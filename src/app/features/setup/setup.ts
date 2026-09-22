@@ -4,6 +4,7 @@ import { Marca } from '../../shared/marca/marca';
 import { PartidoService } from '../../core/partido.service';
 import { routes } from '../../app.routes';
 import { Router } from '@angular/router';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-setup',
@@ -12,6 +13,14 @@ import { Router } from '@angular/router';
   styleUrl: './setup.css',
 })
 export class Setup {
+
+  constructor(){
+    inject(Meta).updateTag({
+      name: 'description',
+      content: 'Marcador de pádel gratis para el móvil. Lleva los puntos, juegos y sets, y sabe siempre quien saca y desde que lado. Sin instalar nada.',
+    });
+  }
+
   private fb = inject(FormBuilder);
   private partido = inject(PartidoService);
   private router = inject(Router);

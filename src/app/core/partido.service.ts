@@ -15,7 +15,9 @@ export class PartidoService{
     constructor(){
         effect(() =>{
             const data: SavedData = {state: this.state(), history: this.history()};
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            if(typeof localStorage !== 'undefined'){
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+            }
         });
     }
     //--------------------------------------------------
@@ -168,6 +170,11 @@ interface SavedData{
 }
 
 function loadSaved(): SavedData{
+
+    if (typeof localStorage === 'undefined'){
+        return {state: null, history: []};
+    }
+
     try{
         const raw = localStorage.getItem(STORAGE_KEY);
         if(raw) return JSON.parse(raw) as SavedData;
