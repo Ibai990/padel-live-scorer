@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎾 Padel Live Scorer
+#  Padel Live Scorer
 
 **Marcador de pádel online, gratis y pensado para usarse en la pista.**
 Lleva los puntos, juegos y sets, y sabes siempre quién saca y desde qué lado.
