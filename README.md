@@ -39,7 +39,8 @@ Lleva los puntos, juegos y sets, y sabes siempre quién saca y desde qué lado.
 
 1. Entra en **[padellivescorer.com](https://padellivescorer.com)**.
 2. Escribe el nombre de las dos parejas (por ejemplo, `Aitor Pablo || Miguel Ernesto`).
-3. Toca el lado de la pareja que gana cada punto.
+3. Configura los sets y el saque.
+4. Toca el lado de la pareja que gana cada punto.
 
 No hace falta registrarse ni instalar nada.
 
