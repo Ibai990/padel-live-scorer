@@ -38,7 +38,19 @@
 </header>
 
 <section class="serve-strip">
-    @if (partido.ganador() === null) {
+
+    @if (s.saqueTiebrk) {
+    <div class="tb-chooser">
+        <strong class="lime">¡Tie-break! ¿Quién saca el primer punto?</strong>
+        <div class="tb-botones">
+            @for (op of opcionesTiebreak(); track op.value) {
+            <button [class.equipo-2]="op.equipo === 1" [class.sugerido]="op.sugerido" (click)="elegirSacador(op.ref)">
+                {{ op.label }}
+            </button>
+            }
+        </div>
+    </div>
+    } @else if (partido.ganador() === null) {
     <span class="label">Saque &amp; resto</span>
     <app-court-mini [serverOnLeft]="saqueIZQ()" [side]="partido.ladoSaque()" />
     <div class="serve-info">
@@ -50,12 +62,14 @@
     } @else {
     <strong class="final">🏆 Ganan {{ s.equipos[partido.ganador()!] }}</strong>
     }
+
 </section>
+
 
 <main class="panels">
     @for (team of order(); track team; let first = $first) {
     <app-panel-equipo [index]="team" [name]="s.equipos[team]" [games]="s.juegos[team]"
-        [points]="partido.puntosLabels()[team]" [serving]="partido.ganador() === null && s.equipoSaque === team"
+        [points]="partido.puntosLabels()[team]" [serving]="partido.ganador() === null && partido.servicio()?.equipo === team"
         [keyHint]="first ? '← Flecha Izq' : 'Flecha Der →'" (point)="partido.sumaPunto(team)" />
     }
 </main>

@@ -176,6 +176,46 @@
   color: #38bdf8;
 }
 
+.tb-chooser {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  strong { font-size: 0.85rem; }
+}
+
+.tb-botones {
+  display: flex;
+  gap: 8px;
+
+  button {
+    --accent: var(--blue);
+    padding: 8px 14px;
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+
+    &.equipo-2 { --accent: var(--orange); }
+
+    &:hover { background: color-mix(in srgb, var(--accent) 30%, transparent); }
+    &:active { transform: scale(0.96); }
+
+    &.sugerido {
+      background: var(--lime);
+      border-color: var(--lime);
+      color: #0b0e14;
+      box-shadow: 0 0 14px rgba(212, 255, 0, 0.4);
+    }
+  }
+}
 
 @media (max-width: 700px) and (orientation: portrait) {
   .top {

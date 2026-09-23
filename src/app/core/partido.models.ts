@@ -13,4 +13,19 @@ export interface PartidoState{
     equipoSaque: EquipoIdx; //Que pareja saca
     siguienteSaque: Pareja<JugadorIdx>;   //Que jugador saca su proximo juego
     cambioCampo: boolean;   //Si se ha cambiado de campo
+    config: PartidoConfig;
+    comenzadoEn: number;    //Cuado comienza
+    finalizadoEn: number | null;    //Cuando termina
+    primerSaque: JugadorRef | null;    //Quien saca el primer juego
+    saqueTiebrk: boolean;   //Espera a que se elija quien saca en el tiebreak
+}
+
+export interface JugadorRef{
+    equipo: EquipoIdx;
+    jugador: JugadorIdx;
+}
+
+export interface PartidoConfig{
+    tieBreak: boolean;  //Se juega con tiebreak?
+    setsPaGanar: 1 | 2; //Se juega a un set o a 2 (3)?
 }
