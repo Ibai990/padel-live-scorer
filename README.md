@@ -21,7 +21,7 @@ Lleva los puntos, juegos y sets, y sabes siempre quién saca y desde qué lado.
 - **Quién saca y desde dónde:** indica la pareja y el jugador al saque, y si saca desde la derecha (iguales) o la izquierda (ventaja).
 - **Mini pista de saque y resto:** muestra de un vistazo la diagonal del saque.
 - **Historial de sets:** los resultados de los sets anteriores siempre visibles (6-2, 4-6…).
-- **Cronometro de partido:** mira cuanto tiempo llevas de partida y cuanto dura al final.
+- **Cronometro de partido:** mira cuánto tiempo llevas de partida y cuanto dura al final.
 - **Deshacer ilimitado:** corrige cualquier punto marcado por error, incluso si cerró un juego o un set.
 - **Cambio de campo:** intercambia los lados en pantalla cuando cambiáis de campo.
 - **No pierde el partido:** se guarda automáticamente en el navegador, aunque recargues o se cierre la pestaña.
