@@ -8,7 +8,9 @@ import { Marcador } from './features/marcador/marcador';
 const hasPartido = () => {
     const partido = inject(PartidoService);
     const router = inject(Router);
-    return partido.state() !== null ? true : router.createUrlTree(['/']); //Sin atajos trampa desde el buscador
+    const s = partido.state();
+    const enCurso = s !== null && s.finalizadoEn === null;
+    return enCurso ? true : router.createUrlTree(['/']); //Sin atajos trampa desde el buscador
 }
 
 export const routes: Routes = [
