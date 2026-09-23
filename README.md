@@ -60,7 +60,7 @@ Requisitos: [Node.js](https://nodejs.org) (versión indicada en el archivo `.nvm
 git clone https://github.com/Ibai990/padel-live-scorer.git
 cd padel-live-scorer
 npm install
-ng serve
+ng serve -o
 ```
 
 Abre `http://localhost:4200` en el navegador.
