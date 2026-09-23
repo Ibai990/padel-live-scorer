@@ -1,0 +1,28 @@
+@if (partido.state(); as s) {
+  <div class="tarjeta">
+    <span class="label">Ganan</span>
+    <h2>{{ nombreGanador() }}</h2>
+
+    @if (s.marcadorSets.length > 0) {
+      <div class="sets">
+        @for (set of s.marcadorSets; track $index) {
+          <div class="set">
+            <span [class.win]="set[0] > set[1]">{{ set[0] }}</span>
+            <span [class.win]="set[1] > set[0]">{{ set[1] }}</span>
+          </div>
+        }
+      </div>
+    }
+
+    <p class="meta">
+      {{ s.equipos[0] }} &nbsp;vs&nbsp; {{ s.equipos[1] }}
+      @if (duracion()) { <span class="punto">·</span> {{ duracion() }} }
+    </p>
+
+    <div class="acciones">
+      <button class="primary" (click)="revancha()">Revancha</button>
+      <button (click)="nuevoPartido()">Nuevo partido</button>
+      <button class="ghost" (click)="partido.undo()">Deshacer último punto</button>
+    </div>
+  </div>
+}

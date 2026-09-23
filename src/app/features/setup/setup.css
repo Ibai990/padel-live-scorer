@@ -32,7 +32,7 @@ label {
   margin-bottom: 6px;
 }
 
-input {
+input:not([type='radio']) {
   margin-bottom: 16px;
   padding: 12px 14px;
   background: var(--panel);

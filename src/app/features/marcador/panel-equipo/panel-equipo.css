@@ -2,18 +2,18 @@
   --accent: var(--blue);
   display: flex;
   flex-direction: column;
+  min-height: 0;
   padding: 24px 28px;
+  overflow: hidden;
   cursor: pointer;
   user-select: none;
+  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   transition: filter 0.15s;
 
   &:active {
     filter: brightness(1.25);
   }
-  min-height: 0;
-  overflow: hidden;
-  touch-action: manipulation;
 }
 
 :host(.equipo-2) {

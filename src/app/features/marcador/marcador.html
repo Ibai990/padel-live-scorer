@@ -6,6 +6,11 @@
 <header class="top">
     <app-marca />
 
+    <div class="crono" [class.parado]="s.finalizadoEn !== null">
+        <span class="pulse"></span>
+        {{ tiempo() }}
+    </div>
+
     <div class="summary">
         <div class="group">
             <span class="label">Sets</span>
@@ -27,6 +32,7 @@
         }
 
         @if (partido.ganador() == null){
+            
         <span class="sep"></span>
         <div class="group">
             <span class="label lime">Juegos</span>
@@ -69,7 +75,8 @@
 <main class="panels">
     @for (team of order(); track team; let first = $first) {
     <app-panel-equipo [index]="team" [name]="s.equipos[team]" [games]="s.juegos[team]"
-        [points]="partido.puntosLabels()[team]" [serving]="partido.ganador() === null && partido.servicio()?.equipo === team"
+        [points]="partido.puntosLabels()[team]"
+        [serving]="partido.ganador() === null && partido.servicio()?.equipo === team"
         [keyHint]="first ? '← Flecha Izq' : 'Flecha Der →'" (point)="partido.sumaPunto(team)" />
     }
 </main>
@@ -82,11 +89,12 @@
     <button (click)="partido.cambioCampo()">
         <span class="icon swap">⇄</span> Cambiar Campo
     </button>
-    } @else {
-    <button (click)="partido.undo()">
-        <span class="icon undo">↶</span> Deshacer último punto
-    </button>
-    <button class="primary" (click)="newMatch()">Nuevo partido →</button>
-    }
+    } 
 </footer>
+
+@if (partido.ganador() !== null) {
+<app-resultado />
+}
+
+
 }

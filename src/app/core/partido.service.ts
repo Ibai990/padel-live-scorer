@@ -1,8 +1,5 @@
 import { computed, effect, Injectable, signal } from "@angular/core";
 import { EquipoIdx, JugadorIdx, JugadorRef, Lado, Pareja, PartidoConfig, PartidoState } from './partido.models';
-import { TemplateBindingParseResult } from "@angular/compiler";
-import { config } from '../app.config.server';
-import { first } from "rxjs";
 
 
 @Injectable({ providedIn: 'root' })
@@ -214,8 +211,9 @@ export class PartidoService {
 //Separamos los jugadores para hacerlos individules para el saque en vez de parejas
 
 export function separarJugadores(equipo: string): Pareja<string> {
-    const [p1 = 'Jugador 1', p2 = 'Jugador 2'] = equipo.split(' ').map(p => p.trim());
-    return [p1, p2];
+    const partes = equipo.trim().split(/\s+/).filter(Boolean);
+    const [j1 = 'Jugador 1', j2 = 'Jugador 2'] = partes;
+    return [j1, j2];
 }
 
 

@@ -2,12 +2,9 @@ import { Component, computed, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Marca } from '../../shared/marca/marca';
 import { PartidoService, separarJugadores } from '../../core/partido.service';
-import { routes } from '../../app.routes';
 import { Router } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { splitNsName } from '@angular/compiler';
-import { EquipoIdx } from '../../core/partido.models';
 
 @Component({
   selector: 'app-setup',

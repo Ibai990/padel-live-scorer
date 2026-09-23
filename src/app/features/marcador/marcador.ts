@@ -1,21 +1,44 @@
-import { Component, computed, HostListener, inject } from '@angular/core';
+import { Component, computed, DestroyRef, HostListener, inject, signal } from '@angular/core';
 import { PartidoService } from '../../core/partido.service';
 import { Router } from '@angular/router';
 import { EquipoIdx, JugadorRef, Pareja } from '../../core/partido.models';
 import { Marca } from '../../shared/marca/marca';
 import { PanelEquipo } from './panel-equipo/panel-equipo';
 import { MiniCampo } from './mini-campo/mini-campo';
-import { equal } from 'assert';
+import { Resultado } from './resultado/resultado';
 
 @Component({
   selector: 'app-marcador',
-  imports: [Marca, PanelEquipo, MiniCampo],
+  imports: [Marca, PanelEquipo, MiniCampo, Resultado],
   templateUrl: './marcador.html',
   styleUrl: './marcador.css',
 })
 export class Marcador {
   partido = inject(PartidoService);
   private router = inject(Router);
+
+  private ahora = signal(Date.now());
+
+  constructor(){
+    const id = setInterval(() => this.ahora.set(Date.now()), 1000);
+    inject(DestroyRef).onDestroy(() => clearInterval(id));
+  }
+  
+  tiempo = computed(() => {
+    const s = this.partido.state();
+    if(!s) return '0:00';
+
+    const fin = s.finalizadoEn ?? this.ahora();
+    const seg = Math.max(0, Math.floor((fin - s.comenzadoEn) / 1000));
+
+    const h = Math.floor(seg / 3600);
+    const m = Math.floor((seg % 3600) / 60);
+    const sg = seg % 60;
+    const dd = (n: number) => String(n).padStart(2, '0');
+
+    return h > 0 ? `${h}:${dd(m)}:${dd(sg)}` : `${m}:${dd(sg)}`;
+  })
+
 
   order = computed<Pareja<EquipoIdx>>(() =>
   this.partido.state()?.cambioCampo ? [1, 0] : [0, 1]
