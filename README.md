@@ -75,7 +75,7 @@ npm run build
 
 ```
 src/app/
-├── core/          # Estado del partido y reglas del pádel (MatchService)
+├── core/          # Estado del partido y reglas del pádel (PartidoService)
 ├── features/
 │   ├── setup/     # Pantalla de inicio
 │   └── marcador/# Marcador, paneles de pareja y mini pista
